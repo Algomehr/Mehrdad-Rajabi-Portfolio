@@ -12,12 +12,15 @@
       body {
         font-family: 'Vazirmatn', sans-serif;
       }
+      .hide-cursor {
+        cursor: none;
+      }
       /* For custom scrollbar styling to match the dark theme */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #111827; /* bg-gray-900 */
+        background: #020617; /* bg-slate-900 */
       }
       ::-webkit-scrollbar-thumb {
         background: #3b82f6; /* blue-500 */
@@ -33,6 +36,11 @@
       .mobile-nav-scrollbar-hide {
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
+      }
+
+      /* Text Shadow for Hero */
+      .text-glow {
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 0 0 20px rgba(59, 130, 246, 0.4);
       }
     </style>
   <script type="importmap">

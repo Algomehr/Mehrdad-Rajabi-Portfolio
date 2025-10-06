@@ -18,13 +18,13 @@ export const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ isOpen, onCl
         >
             {/* Backdrop */}
             <div
-                className="absolute inset-0 bg-black/60"
+                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
                 onClick={onClose}
             ></div>
 
             {/* Drawer */}
             <div
-                className={`fixed top-0 right-0 h-full w-64 bg-gray-900 shadow-lg transition-transform duration-300 ease-in-out ${
+                className={`fixed top-0 right-0 h-full w-64 bg-slate-900/80 shadow-lg transition-transform duration-300 ease-in-out ${
                     isOpen ? 'transform-none' : 'translate-x-full'
                 }`}
             >

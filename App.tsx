@@ -10,6 +10,8 @@ import { TeachingSection } from './components/sections/TeachingSection';
 import { ActivitiesSection } from './components/sections/ActivitiesSection';
 import { MobileHeader } from './components/MobileHeader';
 import { MobileMenuDrawer } from './components/MobileMenuDrawer';
+import { CustomCursor } from './components/CustomCursor';
+import { ParticleBackground } from './components/ParticleBackground';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -32,14 +34,17 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-900">
+    <div className="flex min-h-screen bg-slate-900 hide-cursor">
+      <CustomCursor />
+      <ParticleBackground />
+      
       {/* Desktop Sidebar */}
-      <div className="hidden lg:block">
+      <div className="hidden lg:block z-50">
         <SidebarNav />
       </div>
       
       {/* Mobile Header & Drawer */}
-      <div className="lg:hidden">
+      <div className="lg:hidden z-50">
         <MobileHeader 
           isMenuOpen={isMobileMenuOpen}
           onToggleMenu={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -53,7 +58,7 @@ const App: React.FC = () => {
         />
       </div>
 
-      <main className="flex-1 lg:pr-20">
+      <main className="flex-1 lg:pr-20 relative z-10">
         {/* Mobile View: Render only one active section */}
         <div className="lg:hidden w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8">
             {sections[activeSection]}

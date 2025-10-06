@@ -8,7 +8,7 @@ interface MobileHeaderProps {
 
 export const MobileHeader: React.FC<MobileHeaderProps> = ({ isMenuOpen, onToggleMenu }) => {
     return (
-        <header className="fixed top-0 right-0 w-full h-20 bg-gray-900/80 backdrop-blur-sm border-b border-gray-800 z-40 flex items-center justify-between px-4">
+        <header className="fixed top-0 right-0 w-full h-20 bg-slate-900/80 backdrop-blur-sm border-b border-gray-800 z-40 flex items-center justify-between px-4">
             <h1 className="text-xl font-bold text-white">Mehrdad Rajabi</h1>
             <button
                 onClick={onToggleMenu}
