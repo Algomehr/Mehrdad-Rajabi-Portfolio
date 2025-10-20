@@ -12,7 +12,7 @@ export const HeroSection: React.FC = () => {
 
       <div className="relative z-10 px-4">
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-glow">
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 py-2">مهرداد رجبی</span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 py-2">Mehrdad Rajabi</span>
         </h1>
         <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-300 leading-relaxed">
           پلی میان دنیای کوانتوم و کدهای فول-استک. من با اشتیاق به حل چالش‌های پیچیده، ایده‌ها را به راه‌حل‌های فناورانه و کارآمد تبدیل می‌کنم.
