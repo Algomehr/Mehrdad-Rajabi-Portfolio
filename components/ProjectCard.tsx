@@ -1,5 +1,6 @@
 import React from 'react';
 import { Project } from '../../types';
+import { ProjectGraphic } from './ProjectGraphics';
 
 interface ProjectCardProps {
   project: Project;
@@ -10,7 +11,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     <div className="relative bg-gray-800/50 rounded-lg overflow-hidden shadow-lg hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-2 group flex flex-col border border-gray-700/50">
       <div className="absolute -inset-px rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md"></div>
       <div className="relative bg-gray-800 rounded-lg overflow-hidden flex flex-col flex-grow h-full">
-        <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover"/>
+        <ProjectGraphic graphicId={project.graphicId} />
         <div className="p-6 flex flex-col flex-grow">
           <h3 className="text-xl font-bold text-white">{project.title}</h3>
           <p className="text-sm text-blue-400 mb-2">{project.tagline}</p>
