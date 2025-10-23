@@ -89,7 +89,7 @@ export const PROJECTS: Project[] = [
     description: 'توسعه یک اپلیکیشن وب سه‌بعدی برای دانشکده فیزیک دانشگاه اصفهان برای کمک به دانشجویان در تجسم پدیده‌های پیچیده فیزیکی.',
     imageUrl: 'https://source.unsplash.com/1200x800/?3d,render,physics,model',
     tags: ['Three.js', 'Next.js', 'Blender', 'Node.js', 'وب'],
-    link: '#',
+    link: 'https://phy-ui-map.netlify.app/',
   }
 ];
 
