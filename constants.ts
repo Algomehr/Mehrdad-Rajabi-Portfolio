@@ -53,7 +53,7 @@ export const PROJECTS: Project[] = [
     description: 'AI Forge - استودیوی شخصی شما برای ابزارهای هوشمند. فعالیت‌های روزانه را مدیریت کنید، ماه خود را برنامه‌ریزی کنید و به مجموعه‌ای قدرتمند از ابزارهای هوش مصنوعی دسترسی داشته باشید.',
     graphicId: 'ai-forge',
     tags: ['بهره‌وری', 'هوش مصنوعی', 'React', 'Node.js', 'مدیریت پروژه'],
-    link: '#',
+    link: 'https://ai-forge-system.netlify.app/',
   },
   {
     id: 'mechanics-analyzer',
@@ -120,6 +120,7 @@ export const ARTICLES: Article[] = [
 export const COURSES: Course[] = [
   {
     id: 'data-science',
+    // FIX: The title string was broken by a newline character. It has been corrected to be on a single line.
     title: 'آموزش علم داده',
     description: 'یک دوره جامع برای یادگیری مبانی و تکنیک‌های پیشرفته علم داده، از پاکسازی داده تا ساخت مدل‌های یادگیری ماشین قدرتمند.',
   },

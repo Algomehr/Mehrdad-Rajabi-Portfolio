@@ -22,10 +22,10 @@ export const AboutSection: React.FC = () => {
   ];
 
   const languages = [
-    { name: 'انگلیسی', level: 'C2 - تسلط کامل حرفه‌ای' },
+    { name: 'انگلیسی', level: '' },
     { name: 'فارسی', level: 'زبان مادری' },
-    { name: 'فرانسوی', level: 'C2 - تسلط کامل حرفه‌ای' },
-    { name: 'آلمانی', level: 'C2 - تسلط کامل حرفه‌ای' },
+    { name: 'فرانسوی', level: '' },
+    { name: 'آلمانی', level: '' },
   ];
   
   return (
