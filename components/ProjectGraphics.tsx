@@ -20,6 +20,31 @@ const SVGWrapper: React.FC<{children: React.ReactNode}> = ({ children }) => (
     </svg>
 );
 
+const QuantumNetworkSimulatorGraphic = () => (
+    <SVGWrapper>
+        <g opacity="0.8" filter="url(#glow)">
+            {/* Nodes */}
+            <circle cx="200" cy="133" r="15" fill="#a5b4fc" />
+            <circle cx="100" cy="80" r="10" fill="#60a5fa" />
+            <circle cx="300" cy="80" r="10" fill="#60a5fa" />
+            <circle cx="100" cy="186" r="10" fill="#60a5fa" />
+            <circle cx="300" cy="186" r="10" fill="#60a5fa" />
+            <circle cx="200" cy="50" r="10" fill="#60a5fa" />
+            <circle cx="200" cy="216" r="10" fill="#60a5fa" />
+
+            {/* Connections */}
+            <line x1="200" y1="133" x2="100" y2="80" stroke="#3b82f6" strokeWidth="1.5" />
+            <line x1="200" y1="133" x2="300" y2="80" stroke="#3b82f6" strokeWidth="1.5" />
+            <line x1="200" y1="133" x2="100" y2="186" stroke="#3b82f6" strokeWidth="1.5" />
+            <line x1="200" y1="133" x2="300" y2="186" stroke="#3b82f6" strokeWidth="1.5" />
+            <line x1="200" y1="133" x2="200" y2="50" stroke="#3b82f6" strokeWidth="1.5" />
+            <line x1="200" y1="133" x2="200" y2="216" stroke="#3b82f6" strokeWidth="1.5" />
+            <path d="M100 80 C 150 20, 250 20, 300 80" stroke="#3b82f6" strokeWidth="1.5" fill="none" strokeDasharray="3 3" />
+            <path d="M100 186 C 150 246, 250 246, 300 186" stroke="#3b82f6" strokeWidth="1.5" fill="none" strokeDasharray="3 3" />
+        </g>
+    </SVGWrapper>
+);
+
 const QkdSimulatorGraphic = () => (
     <SVGWrapper>
         <g opacity="0.4" filter="url(#glow)">
@@ -169,6 +194,7 @@ const DefaultGraphic = () => (
 
 export const ProjectGraphic: React.FC<{ graphicId: string }> = ({ graphicId }) => {
   switch (graphicId) {
+    case 'quantum-network-simulator': return <QuantumNetworkSimulatorGraphic />;
     case 'qkd-simulator': return <QkdSimulatorGraphic />;
     case 'cybersim-ai': return <CyberSimAiGraphic />;
     case 'neuro-architect': return <NeuroArchitectGraphic />;

@@ -2,6 +2,15 @@ import { Project, Article, Course, Activity } from './types';
 
 export const PROJECTS: Project[] = [
   {
+    id: 'quantum-network-simulator',
+    title: 'شبیه‌ساز شبکه کوانتومی',
+    tagline: 'اینترنت کوانتومی را طراحی و تحلیل کنید.',
+    description: 'یک محیط شبیه‌سازی تعاملی و بصری که به دانشجویان، پژوهشگران و مهندسان امکان طراحی، اجرا و تحلیل شبکه‌های کوانتومی را می‌دهد و شکاف بین نظریه پیچیده کوانتومی و پیاده‌سازی عملی را پر می‌کند.',
+    graphicId: 'quantum-network-simulator',
+    tags: ['شبکه کوانتومی', 'شبیه‌سازی', 'فیزیک کوانتوم', 'آموزش', 'تحقیق'],
+    link: '#',
+  },
+  {
     id: 'qkd-simulator',
     title: 'شبیه‌ساز توزیع کلید کوانتومی',
     tagline: 'امنیت کوانتومی را به صورت تعاملی تجربه کنید.',
