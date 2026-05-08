@@ -54,21 +54,21 @@ export const ContactSection: React.FC = () => {
 
   return (
     <SectionWrapper id="contact" title="در تماس باشید">
-      <div className="max-w-3xl mx-auto">
-        <p className="text-center text-lg text-gray-400 mb-8">
+      <div className="max-w-3xl mx-auto bg-slate-900/40 backdrop-blur-xl p-8 rounded-2xl border border-slate-700/50 shadow-xl">
+        <p className="text-center text-lg text-gray-300 mb-8">
           یک پروژه، یک فرصت تحقیقاتی، یا فقط می‌خواهید ارتباط برقرار کنید؟ خوشحال می‌شوم از شما بشنوم.
         </p>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input type="text" name="name" placeholder="نام شما" required className="bg-gray-800 border border-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <input type="email" name="email" placeholder="ایمیل شما" required className="bg-gray-800 border border-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <input type="text" name="name" placeholder="نام شما" required className="w-full bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-slate-800 transition-colors" />
+            <input type="email" name="email" placeholder="ایمیل شما" required className="w-full bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-slate-800 transition-colors" />
           </div>
-          <input type="text" name="subject" placeholder="موضوع" required className="w-full bg-gray-800 border border-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          <textarea name="message" placeholder="پیام شما" rows={6} required className="w-full bg-gray-800 border border-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+          <input type="text" name="subject" placeholder="موضوع" required className="w-full bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-slate-800 transition-colors" />
+          <textarea name="message" placeholder="پیام شما" rows={6} required className="w-full bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-slate-800 transition-colors"></textarea>
           <div className="text-center">
             <button 
               type="submit" 
-              className="bg-blue-600 text-white font-bold py-3 px-10 rounded-full hover:bg-blue-700 transition duration-300 text-lg disabled:bg-gray-500 disabled:cursor-not-allowed"
+              className="bg-blue-600/80 backdrop-blur-md shadow-lg border border-blue-500/50 text-white font-bold py-3 px-10 rounded-full hover:bg-blue-500 transition duration-300 text-lg disabled:bg-slate-600 disabled:border-slate-500 disabled:cursor-not-allowed"
               disabled={isSubmitting}
             >
               {isSubmitting ? 'در حال ارسال...' : 'ارسال پیام'}

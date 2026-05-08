@@ -30,29 +30,31 @@ export const AboutSection: React.FC = () => {
   
   return (
     <SectionWrapper id="about" title="درباره من">
-      <div className="flex flex-col md:flex-row items-center gap-12">
-        <div className="md:w-1/3 w-full flex-shrink-0 relative">
-          <div className="absolute inset-0 border-4 border-blue-500/50 rounded-full animate-pulse"></div>
-          <img 
-            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAHMAeADAREAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAABQECAwQGAAcI/8QAVxAAAQMDAgMFBQQECQcJBgcBAQIDEQQFIQAGMRJBURNhcQeBFCJSkZKhscEIMlNicqLR0uHwFRYkMzU2Q4KSorOywtPxJTZEVFVjdYOTpNMlNjdEdIOj/8QAGwEBAAIDAQEAAAAAAAAAAAAAAAECAwQFBgf/xAA5EQACAQIEAwYDBwQDAAMAAAAAAQIDEQQSITFBURMiYTJxgZGhFEJSscHR8FLhBiNikjNDYnKywv/w" 
-            alt="Mehrdad Rajabi" 
-            className="rounded-full border-4 border-blue-500 shadow-2xl shadow-blue-500/30 mx-auto object-cover w-64 h-64 md:w-80 md:h-80 relative z-10"
-          />
-        </div>
-        <div className="md:w-2/3 w-full text-lg text-gray-300 space-y-4">
-            <p>
-                من دانشجوی فیزیک در دانشگاه اصفهان هستم و اشتیاق عمیقی برای کشف پیچیدگی‌های جهان، از قلمرو کوانتومی تا ساختارهای کیهانی، دارم. سفر آکادمیک من تنها به نظریه محدود نمی‌شود؛ بلکه سکوی پرتابی برای به کارگیری فیزیک بنیادی در مهندسی راه‌حل‌های نوآورانه و واقعی است.
-            </p>
-            <p>
-                تخصص من محاسبات کوانتومی، یادگیری ماشین و توسعه فول-استک را در بر می‌گیرد. من در رهبری پروژه‌ها از جرقه اولیه ایده تا یک اپلیکیشن کاملاً مستقر و با کارایی بالا، شکوفا می‌شوم. چه معماری شبکه‌های عصبی آگاه از فیزیک (PINNs)، چه توسعه تجربیات وب سه‌بعدی تعاملی با Three.js، یا استفاده از اصول کوانتومی برای تقویت یادگیری عمیق، هدف من همیشه یکسان است: ارائه با <span className="font-semibold text-white">خلاقیت، سرعت و کیفیت بی‌نظیر</span>.
-            </p>
-            <p>
-                خارج از دنیای کد و کیهان‌شناسی، خلاقیت خود را از طریق عکاسی، فیلم‌سازی و نویسندگی بیان می‌کنم و همواره به دنبال دیدگاه‌های جدید هستم. من فعالانه به دنبال فرصت‌های تحقیقاتی و کارآموزی هستم که در آن بتوانم در پروژه‌های پیشگامانه مشارکت کرده و به پر کردن شکاف بین علم انتزاعی و فناوری ملموس ادامه دهم.
-            </p>
+      <div className="bg-slate-900/40 backdrop-blur-xl p-8 rounded-2xl border border-slate-700/50 shadow-xl">
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="md:w-1/3 w-full flex-shrink-0 relative">
+            <div className="absolute inset-0 border-4 border-blue-500/50 rounded-full animate-pulse"></div>
+            <img 
+              src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAHMAeADAREAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAABQECAwQGAAcI/8QAVxAAAQMDAgMFBQQECQcJBgcBAQIDEQQFIQAGMRJBURNhcQeBFCJSkZKhscEIMlNicqLR0uHwFRYkMzU2Q4KSorOywtPxJTZEVFVjdYOTpNMlNjdEdIOj/8QAGwEBAAIDAQEAAAAAAAAAAAAAAAECAwQFBgf/xAA5EQACAQIEAwYDBwQDAAMAAAAAAQIDEQQSITFBURMiYTJxgZGhFEJSscHR8FLhBiNikjNDYnKywv/w" 
+              alt="Mehrdad Rajabi" 
+              className="rounded-full border-4 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.3)] mx-auto object-cover w-64 h-64 md:w-80 md:h-80 relative z-10"
+            />
+          </div>
+          <div className="md:w-2/3 w-full text-lg text-gray-300 space-y-4">
+              <p>
+                  من دانشجوی فیزیک در دانشگاه اصفهان هستم و اشتیاق عمیقی برای کشف پیچیدگی‌های جهان، از قلمرو کوانتومی تا ساختارهای کیهانی، دارم. سفر آکادمیک من تنها به نظریه محدود نمی‌شود؛ بلکه سکوی پرتابی برای به کارگیری فیزیک بنیادی در مهندسی راه‌حل‌های نوآورانه و واقعی است.
+              </p>
+              <p>
+                  تخصص من محاسبات کوانتومی، یادگیری ماشین و توسعه فول-استک را در بر می‌گیرد. من در رهبری پروژه‌ها از جرقه اولیه ایده تا یک اپلیکیشن کاملاً مستقر و با کارایی بالا، شکوفا می‌شوم. چه معماری شبکه‌های عصبی آگاه از فیزیک (PINNs)، چه توسعه تجربیات وب سه‌بعدی تعاملی با Three.js، یا استفاده از اصول کوانتومی برای تقویت یادگیری عمیق، هدف من همیشه یکسان است: ارائه با <span className="font-semibold text-white">خلاقیت، سرعت و کیفیت بی‌نظیر</span>.
+              </p>
+              <p>
+                  خارج از دنیای کد و کیهان‌شناسی، خلاقیت خود را از طریق عکاسی، فیلم‌سازی و نویسندگی بیان می‌کنم و همواره به دنبال دیدگاه‌های جدید هستم. من فعالانه به دنبال فرصت‌های تحقیقاتی و کارآموزی هستم که در آن بتوانم در پروژه‌های پیشگامانه مشارکت کرده و به پر کردن شکاف بین علم انتزاعی و فناوری ملموس ادامه دهم.
+              </p>
+          </div>
         </div>
       </div>
       
-      <div className="mt-20 max-w-5xl mx-auto">
+      <div className="mt-16 bg-slate-900/40 backdrop-blur-xl p-8 rounded-2xl border border-slate-700/50 shadow-xl max-w-5xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
             {/* Specializations Section */}
             <div>

@@ -9,11 +9,11 @@ export const ActivitiesSection: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <div className="space-y-6">
           {ACTIVITIES.map((activity) => (
-            <div key={activity.id} className="flex items-start gap-4 p-4 bg-gray-800/30 rounded-lg border border-gray-800/50">
+            <div key={activity.id} className="flex items-start gap-4 p-6 bg-slate-900/40 backdrop-blur-md rounded-xl border border-slate-700/50 shadow-lg hover:bg-slate-800/60 transition-colors duration-300">
               <span className="text-blue-400 mt-1 flex-shrink-0">
                 <CheckBadgeIcon />
               </span>
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-gray-300 font-medium">
                 {activity.title}
               </p>
             </div>

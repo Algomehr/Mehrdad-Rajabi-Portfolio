@@ -1,137 +1,96 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useMemo } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Stars, Float, MeshDistortMaterial } from '@react-three/drei';
+import * as THREE from 'three';
+
+const DataNodes = () => {
+  const group = useRef<THREE.Group>(null);
+  const { mouse, viewport, camera } = useThree();
+
+  // Create random nodes
+  const nodes = useMemo(() => {
+    return Array.from({ length: 60 }).map(() => ({
+      position: [
+        (Math.random() - 0.5) * 25,
+        (Math.random() - 0.5) * 25,
+        (Math.random() - 0.5) * 15 - 5
+      ] as [number, number, number],
+      scale: Math.random() * 0.3 + 0.1,
+      color: Math.random() > 0.5 ? "#3b82f6" : "#818cf8"
+    }));
+  }, []);
+
+  useFrame((state) => {
+    if (group.current) {
+      group.current.rotation.y += 0.001;
+      group.current.rotation.x += 0.0005;
+      
+      // Calculate scroll based on document scroll
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollProgress = maxScroll > 0 ? scrollY / maxScroll : 0;
+
+      // Parallax effect on mouse movement and scroll
+      const targetX = (mouse.x * viewport.width) / 10;
+      const targetY = (mouse.y * viewport.height) / 10 + scrollProgress * 15;
+      
+      group.current.position.x += (targetX - group.current.position.x) * 0.05;
+      group.current.position.y += (targetY - group.current.position.y) * 0.05;
+
+      // Camera dynamic zoom based on scroll
+      camera.position.z = THREE.MathUtils.lerp(camera.position.z, 10 - scrollProgress * 5, 0.05);
+    }
+  });
+
+  return (
+    <group ref={group}>
+      {nodes.map((node, i) => (
+        <Float key={i} speed={1.5} rotationIntensity={1.5} floatIntensity={2}>
+           <mesh position={node.position} scale={node.scale}>
+              <icosahedronGeometry args={[1, 0]} />
+              <meshStandardMaterial color={node.color} wireframe opacity={0.6} transparent />
+           </mesh>
+        </Float>
+      ))}
+      {/* Central AI Brain/Core */}
+      <mesh position={[0, 0, 0]}>
+        <icosahedronGeometry args={[2, 1]} />
+        <MeshDistortMaterial
+          color="#1e3a8a"
+          envMapIntensity={1}
+          clearcoat={1}
+          clearcoatRoughness={0.1}
+          metalness={0.8}
+          roughness={0.2}
+          distort={0.4}
+          speed={2}
+          wireframe
+        />
+      </mesh>
+    </group>
+  );
+};
 
 export const ParticleBackground: React.FC = () => {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
-
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
-        let particles: Particle[] = [];
-        let mouse = { x: width / 2, y: height / 2 };
-
-        class Particle {
-            x: number;
-            y: number;
-            size: number;
-            baseX: number;
-            baseY: number;
-            density: number;
-            color: string;
-
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.size = Math.random() * 1.5 + 0.5;
-                this.baseX = this.x;
-                this.baseY = this.y;
-                this.density = (Math.random() * 30) + 1;
-                this.color = `rgba(59, 130, 246, ${Math.random() * 0.5 + 0.3})`;
-            }
-
-            draw() {
-                if (!ctx) return;
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.closePath();
-                ctx.fill();
-            }
-
-            update() {
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-                let forceDirectionX = dx / distance;
-                let forceDirectionY = dy / distance;
-                let maxDistance = 100;
-                let force = (maxDistance - distance) / maxDistance;
-
-                let directionX = (forceDirectionX * force * this.density);
-                let directionY = (forceDirectionY * force * this.density);
-
-                if (distance < 100) {
-                    this.x -= directionX;
-                    this.y -= directionY;
-                } else {
-                    if (this.x !== this.baseX) {
-                        let dx = this.x - this.baseX;
-                        this.x -= dx / 20;
-                    }
-                    if (this.y !== this.baseY) {
-                        let dy = this.y - this.baseY;
-                        this.y -= dy / 20;
-                    }
-                }
-            }
-        }
-
-        function init() {
-            particles = [];
-            const numberOfParticles = (width * height) / 9000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animate() {
-            if (!ctx) return;
-            ctx.clearRect(0, 0, width, height);
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].draw();
-                particles[i].update();
-            }
-            connect();
-            requestAnimationFrame(animate);
-        }
-
-        function connect() {
-             if (!ctx) return;
-            let opacityValue = 1;
-            for (let a = 0; a < particles.length; a++) {
-                for (let b = a; b < particles.length; b++) {
-                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x))
-                        + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
-                    
-                    if (distance < (width/15) * (height/15)) {
-                        opacityValue = 1 - (distance/10000);
-                        ctx.strokeStyle = `rgba(59, 130, 246, ${opacityValue * 0.2})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[a].x, particles[a].y);
-                        ctx.lineTo(particles[b].x, particles[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        const handleResize = () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-            init();
-        };
+  return (
+    <div className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none">
+      <Canvas camera={{ position: [0, 0, 10], fov: 60 }} dpr={[1, 2]}>
+        <color attach="background" args={['#020617']} />
+        <ambientLight intensity={0.2} />
+        <pointLight position={[10, 10, 10]} intensity={1.5} color="#60a5fa" />
+        <pointLight position={[-10, -10, -10]} intensity={1} color="#818cf8" />
+        <rectAreaLight position={[0, 0, 5]} width={10} height={10} intensity={2} color="#4ade80" />
         
-        const handleMouseMove = (event: MouseEvent) => {
-            mouse.x = event.x;
-            mouse.y = event.y;
-        };
+        <Stars radius={100} depth={50} count={6000} factor={4} saturation={1} fade speed={1.5} />
+        
+        <DataNodes />
 
-        window.addEventListener('resize', handleResize);
-        window.addEventListener('mousemove', handleMouseMove);
-
-        init();
-        animate();
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-            window.removeEventListener('mousemove', handleMouseMove);
-        };
-    }, []);
-
-    return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full z-0" />;
+        {/* Large background distortion for depth */}
+        <mesh position={[0, 0, -30]} scale={1.5}>
+            <sphereGeometry args={[20, 64, 64]} />
+            <MeshDistortMaterial color="#0f172a" distort={0.6} speed={1} wireframe opacity={0.05} transparent />
+        </mesh>
+      </Canvas>
+    </div>
+  );
 };
